@@ -1,5 +1,5 @@
 @extends('Layout.app')
 
 @section('content')
-	GMP
+	GMP Maryana Putra
 @endsection
