@@ -1,6 +1,6 @@
 function getAll(){
   $.ajax({
-      url: "http://localhost:8000/barang",
+      url: "http://localhost:8000/pegawai/fetch",
     
       method: 'GET',
     
@@ -8,20 +8,17 @@ function getAll(){
       timeout: 50000,
       
       success: function(result){
-          $('#MeTable').DataTable().fnClearTable();
-          $('#MeTable').DataTable().fnDestroy();
+          $('#MeTable').dataTable().fnClearTable();
+          $('#MeTable').dataTable().fnDestroy();
           var no = 1;
           console.log(result);
           $.each(result, function(index){
-              var id = result[index]['id'];
+              var id = result[index]['IdMPegawai'];
 
-              $('#MeTable').DataTable().fnAddData( [
-                result[index]['kode'],
-                result[index]['barcode'],
-                result[index]['nama'],
-                result[index]['dosis'],
-                result[index]['namastn'],
-                result[index]['namajb'],
+              $('#MeTable').dataTable().fnAddData( [
+                result[index]['NmMPegawai'],
+                result[index]['Email'],
+                result[index]['NoTelp'],
                 '<button class="btn btn-info btnUpdate" data-id="'+id+'">' +
                 '<i class="fa fa-pencil"></i>' +
                 '</button>' +
@@ -81,11 +78,7 @@ $( document ).ready(function(e){
             $('#input-modal .modal-title').text('Tambah Pegawai');
         }
 
-        $('#aktif').attr('checked', true);
-
-        getSatuan(0);
-        getJenis(0);
-
+        
         $('#input-modal').modal('show');     
     });
 

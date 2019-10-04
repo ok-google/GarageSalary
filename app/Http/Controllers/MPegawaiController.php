@@ -12,6 +12,19 @@ class MPegawaiController extends Controller
         return view('Master.MPegawai');
     }
 
+    public function fetch()
+    {
+    	$data = MPegawai::all();
+
+		return response()->json($data);
+    }
+
+    public function find($id)
+    {
+        $data = MPegawai::findOrFail('IdMPegawai', $id);
+        return response()->json($data);
+    }
+
     public function store(request $request)
     {	
     	$MPegawaiModel = MPegawai::create([
@@ -34,10 +47,10 @@ class MPegawaiController extends Controller
         return response()->json(['success'=> 'data berhasil diupdate']);
     }
 
-    public function delete($id)
+    public function delete(request $request)
     {
-        MPegawai::where('IdMPegawai', $id)->delete();
+        MPegawai::where('IdMPegawai', $request->IdMPegawai)->delete();
 
-        return redirect()->route('mapel.index');
+        return redirect()->route('Master.MPegawai');
     }
 }

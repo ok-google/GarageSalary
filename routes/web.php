@@ -15,4 +15,12 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'MPegawaiController@index');
+$router->group(['prefix' => 'pegawai'], function () use ($router) {
+    $router->get('/', ['uses' => 'MPegawaiController@index']);
+    $router->get('/fetch', ['uses' => 'MPegawaiController@fetch']);
+    $router->get('/{id}',  ['uses' => 'MPegawaiController@find']);
+    $router->post('/store',  ['uses' => 'MPegawaiController@store']);
+    $router->post('/update',  ['uses' => 'MPegawaiController@update']);
+    $router->post('/delete',  ['uses' => 'MPegawaiController@delete']);
+});
+//Route::get('/', 'MPegawaiController@index');
