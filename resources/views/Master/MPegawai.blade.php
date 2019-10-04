@@ -1,9 +1,72 @@
 @extends('Layout.app')
 
 @section('content')
+    <div class="card mb-3">
+      <div class="card-header">  
+        <i class="fas fa-table"></i>
+        Data Table Example
+        <button class="btn btn-primary pull-right" id="btnTambah" style="margin-left:75%;">
+          Tambah
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="MeTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-	Guruh Maryana Putra test 123
-
-	GMP Maryana Putra
+ <div class="modal fade" id="input-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Pegawai</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="hidden" name="tipe">
+  	    	<label>Nama</label>
+  	    	<input class="form-control" id="nama" name="nama">
+	  	  </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label>No Telp</label>
+          <input class="form-control" id="nama" name="nama">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection

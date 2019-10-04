@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Dashboard</title>
+  <title>Garage Salary</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -116,12 +116,12 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-        <div class="row">
+        
           
         @yield('content')
           
           
-        </div>
+        
       </div>
       <!-- /.container-fluid -->
 
@@ -129,7 +129,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © GarageTeam 2019</span>
           </div>
         </div>
       </footer>
