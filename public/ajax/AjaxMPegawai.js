@@ -33,7 +33,7 @@ function getAll(){
           $('#btnTambah').click(function(){
               $('#tipe').val('insert');
               if($('#tipe').val() == "insert"){
-                  $('#input-modal .modal-title').text('Tambah Barang');
+                  $('#input-modal .modal-title').text('Tambah Pegawai');
               }
 
               $('#aktif').attr('checked', true);
@@ -50,7 +50,7 @@ function getAll(){
               
               $('#tipe').val('update');
               if($('#tipe').val() == "update"){
-                  $('#input-modal .modal-title').text('Update Barang');
+                  $('#input-modal .modal-title').text('Update Pegawai');
               }
 
               $('#input-modal').modal('show');
@@ -64,6 +64,10 @@ function getAll(){
           });  
       }
   });
+}
+
+function clearModal(){
+  
 }
 
 
