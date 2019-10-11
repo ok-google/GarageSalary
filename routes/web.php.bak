@@ -25,5 +25,3 @@ Route::put('/Login', 'LoginController@auth');
 // REGISTER
 Route::get('/Register', 'RegisterController@index');
 Route::put('/Register', 'RegisterController@insert');
-
-// Coba
