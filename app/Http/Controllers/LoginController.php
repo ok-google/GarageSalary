@@ -12,7 +12,10 @@ class LoginController extends Controller
         if ($request->session()->has('login_state')) {
             redirect('/');
         } else {
-            return view('Login');
+            return view('Login', [
+                'msgType' => '', // WAJIB meski kosong! agar tidak error dan sesuai dengan halaman login
+                'msgStr' => ''
+            ]);
         }
     }
 
