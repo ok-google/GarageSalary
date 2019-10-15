@@ -38,4 +38,14 @@ class LoginController extends Controller
             ]);
         }
     }
+
+    public function logout(Request $request)
+    {
+       if ($request->session()->has('login_state')) 
+       {
+           $request->session()->forget('login_state');
+           return redirect('/Login');
+       }
+    }
+
 }

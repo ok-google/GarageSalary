@@ -41,6 +41,9 @@ class RegisterController extends Controller
             'IdMPegawai' => $mPegawai->IdMPegawai
         ]);
 
-        return redirect('/Login')->with('msgType', 'success')->with('msgStr', 'Selamat, kamu telah terdaftar.');
+        // return redirect('/Login')->with('msgType', 'success')->with('msgStr', 'Selamat, kamu telah terdaftar.');
+
+        return view('Login', ['msgType'=>'success',
+                              'msgStr'=>'Selamat gaes...']);
     }
 }

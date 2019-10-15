@@ -87,6 +87,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" href="#">Activity Log</a>
+                    <a class="dropdown-item" href="{{url('/ChangePassword')}}">Change Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
                 </div>
@@ -128,11 +129,23 @@
         </ul>
 
         <div id="content-wrapper">
+        {{-- Untuk pesan error atau pesan pemberitahuan --}}
+        @isset($msgType)
+            @if ($msgType != '')
+                <div class="alert alert-{{$msgType}} alert-dismissible fade show mt-4 text-center" role="alert">
+                    <strong>{{ucwords($msgType)}}</strong> {{$msgStr}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        @endisset
 
             <div class="container-fluid">
+                <h3>@yield('title-content')</h3>
                 <div class="row">
 
-
+                    @yield('content')
 
 
                 </div>
@@ -173,7 +186,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{url('/Logout')}}">Logout</a>
                 </div>
             </div>
         </div>
@@ -198,7 +211,7 @@
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
 
-
+    @yield('js')    
 
 
 </body>
