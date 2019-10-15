@@ -25,3 +25,6 @@ Route::put('/Login', 'LoginController@auth');
 // REGISTER
 Route::get('/Register', 'RegisterController@index');
 Route::put('/Register', 'RegisterController@insert');
+
+//Setting Bulan
+Route::get('/Bulan/Generate/{bulan}/{tahun}', 'SettingBulanController@Generate');
