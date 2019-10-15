@@ -12,10 +12,7 @@ class LoginController extends Controller
         if ($request->session()->has('login_state')) {
             redirect('/');
         } else {
-            return view('Login', [
-                'msgType' => '', // WAJIB meski kosong! agar tidak error dan sesuai dengan halaman login
-                'msgStr' => ''
-            ]);
+            return view('Login');
         }
     }
 
@@ -25,7 +22,7 @@ class LoginController extends Controller
         $password = $request->inputPassword;
 
         $data_MUser = MUser::where('username', $username)
-                           ->where('password', $password)
+                           ->where('password', md5($password))
                            ->get();
 
         if (count($data_MUser) > 0) {

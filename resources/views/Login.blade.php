@@ -20,9 +20,9 @@
     <div class="container">
 
         {{-- Untuk pesan error atau pesan pemberitahuan --}}
-        @if ($msgType != '')
-            <div class="alert alert-{{$msgType}} alert-dismissible fade show mt-4 text-center" role="alert">
-                <strong>{{ucwords($msgType)}}</strong> {{$msgStr}}
+        @if (Session::get('msgType') != '')
+            <div class="alert alert-{{Session::get('msgType')}} alert-dismissible fade show mt-4 text-center" role="alert">
+                <strong>{{ucwords(Session::get('msgType'))}}</strong> {{Session::get('msgStr')}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

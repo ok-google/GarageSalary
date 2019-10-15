@@ -15,15 +15,15 @@
 //     return view('welcome');
 // });
 
-// HOME
-Route::get('/', 'HomeController@index');
+Route::group(['middleware' => 'midSession'], function () {
+    // HOME
+    Route::get('/', 'HomeController@index');
 
-// LOGIN
-Route::get('/Login', 'LoginController@index');
-Route::put('/Login', 'LoginController@auth');
+    // LOGIN
+    Route::get('/Login', 'LoginController@index');
+    Route::put('/Login', 'LoginController@auth');
 
-// REGISTER
-Route::get('/Register', 'RegisterController@index');
-Route::put('/Register', 'RegisterController@insert');
-
-// Coba
+    // REGISTER
+    Route::get('/Register', 'RegisterController@index');
+    Route::put('/Register', 'RegisterController@insert');
+});
