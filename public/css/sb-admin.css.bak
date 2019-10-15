@@ -10818,10 +10818,6 @@ body {
   max-width: 25rem;
 }
 
-.card-ChangePassword{
-  width: 50%;
-}
-
 .card-register {
   max-width: 40rem;
 }
