@@ -29,6 +29,15 @@
             </div>
         @endif
 
+        @if(Request::segment(2) == 'NotLogin')
+            <div class="alert alert-warning alert-dismissible fade show mt-4 text-center" role="alert">
+                <strong>Peringatan</strong> Silahkan Login Terlebih dahulu
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
         {{-- Form Login --}}
         <div class="card card-login mx-auto mt-5">
             <div class="card-header">Login</div>

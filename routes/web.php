@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index');
 
 // LOGIN
 Route::get('/Login', 'LoginController@index');
+Route::get('/Login/NotLogin', 'LoginController@index')->name('LoginPage');
 Route::put('/Login', 'LoginController@auth');
 Route::get('/Logout', 'LoginController@logout');
 
@@ -28,7 +29,7 @@ Route::get('/Register', 'RegisterController@index');
 Route::put('/Register', 'RegisterController@insert');
 
 //Setting Bulan
-Route::get('/Bulan/', 'SettingBulanController@Index');
+Route::get('/Bulan/', 'SettingBulanController@Index')->middleware('login');
 Route::get('/Bulan/Get', 'SettingBulanController@Get');
 Route::get('/Bulan/Generate/{bulan}/{tahun}', 'SettingBulanController@Generate');
 
@@ -36,3 +37,6 @@ Route::get('/Bulan/Generate/{bulan}/{tahun}', 'SettingBulanController@Generate')
 //MASTER USER
 Route::get('/ChangePassword', 'MUserController@ChangePassword');
 Route::put('/ChangePassword', 'MUserController@doChangePassword');
+
+//Transaksi Absensi
+Route::get('/Absensi', 'TAbsensiController@Index');

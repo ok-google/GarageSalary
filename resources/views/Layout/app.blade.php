@@ -15,6 +15,8 @@
 
     <!-- Page level plugin CSS-->
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" integrity="sha256-Sv44mRstp+agwCWaPO4R+KKV+Az9Cu+qS5/hNRQlHT0=" crossorigin="anonymous" />
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
@@ -193,7 +195,11 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js" integrity="sha256-bmXHkMKAxMZgr2EehOetiN/paT9LXp0KKAKnLpYlHwE=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -210,6 +216,8 @@
     <!-- Demo scripts for this page-->
     <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
+
+
 
     @yield('js')    
 
