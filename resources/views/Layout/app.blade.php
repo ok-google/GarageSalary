@@ -143,12 +143,12 @@
 
             <div class="container-fluid">
                 <h3>@yield('title-content')</h3>
-                <div class="row">
+                
 
                     @yield('content')
 
 
-                </div>
+                
             </div>
             <!-- /.container-fluid -->
 

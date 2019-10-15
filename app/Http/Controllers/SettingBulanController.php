@@ -9,6 +9,18 @@ use App\MSettingBulan;
 class SettingBulanController extends Controller
 {
 
+	public function Index()
+	{
+		return view('Master.MSettingBulan');
+	}
+
+	public function Get()
+	{
+		$data = MSettingBulan::all();
+
+		return response()->json($data);
+	}
+
 	public function Generate($bulan, $tahun)
 	{
 		$data = MSettingBulan::where([
@@ -17,11 +29,13 @@ class SettingBulanController extends Controller
 									])->first();
 
 		if(empty($data)){
-			$this->insert($bulan, $tahun);
+			$this->Insert($bulan, $tahun);
+		} else{
+			echo "Bulan $bulan - $tahun sudah ada";
 		}
 	}
 
-    public function insert($bulan, $tahun)
+    public function Insert($bulan, $tahun)
     {
     	$ch = curl_init();
     	// set url 
@@ -134,7 +148,7 @@ class SettingBulanController extends Controller
 			$count = $count + 1;
 		}
 		
-		$totJamKerjaSabtu = $totSabtu * 360;
+		$totJamKerjaSabtu = $totSabtu * 300;
 		$totJamKerjaNonSabtu = $totNonSabtu * 480;
 		$totJamKerja = $totJamKerjaSabtu + $totJamKerjaNonSabtu;
 
@@ -148,6 +162,6 @@ class SettingBulanController extends Controller
             'TotalJamKerja' => $totJamKerja
         ]);
 
-		echo $data->Bulan.' sudah di generate';
+		echo "Bulan $bulan - $tahun sudah di generate";
     }
 }

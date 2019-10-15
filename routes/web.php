@@ -28,7 +28,10 @@ Route::get('/Register', 'RegisterController@index');
 Route::put('/Register', 'RegisterController@insert');
 
 //Setting Bulan
+Route::get('/Bulan/', 'SettingBulanController@Index');
+Route::get('/Bulan/Get', 'SettingBulanController@Get');
 Route::get('/Bulan/Generate/{bulan}/{tahun}', 'SettingBulanController@Generate');
+
 
 //MASTER USER
 Route::get('/ChangePassword', 'MUserController@ChangePassword');
