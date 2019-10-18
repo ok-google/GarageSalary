@@ -29,7 +29,7 @@ Route::get('/Register', 'RegisterController@index');
 Route::put('/Register', 'RegisterController@insert');
 
 //Setting Bulan
-Route::get('/Bulan/', 'SettingBulanController@Index')->middleware('login');
+Route::get('/Bulan/', 'SettingBulanController@Index');
 Route::get('/Bulan/Get', 'SettingBulanController@Get');
 Route::get('/Bulan/Generate/{bulan}/{tahun}', 'SettingBulanController@Generate');
 
@@ -40,3 +40,6 @@ Route::put('/ChangePassword', 'MUserController@doChangePassword');
 
 //Transaksi Absensi
 Route::get('/Absensi', 'TAbsensiController@Index');
+
+//History Absensi
+Route::post('/History/Insert', 'TAbsensiDController@Insert');

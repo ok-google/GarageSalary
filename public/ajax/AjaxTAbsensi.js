@@ -66,6 +66,47 @@ function getAll(){
   });
 }
 
+function InsertHistory(e){
+    e.preventDefault();
+
+    var SelisihJam, JamMulai, JamSelesai;
+
+    JamMulai = timeToSeconds($('#JamMulai').val() + ':00') / 100;
+    JamSelesai = timeToSeconds($('#JamSelesai').val() + ':00') / 100;
+
+    if ($('#tipe2').val() != "Lembur"){
+        SelisihJam = Math.floor((JamSelesai - JamMulai) / 1800);
+        SelisihJam = SelisihJam * 30;
+    } else {
+        SelisihJam = Math.floor((JamSelesai - JamMulai) / 900) + 1;
+        SelisihJam = SelisihJam * 15;
+    }
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    
+
+    $.ajax({
+        url: "http://localhost:8000/History/Insert",
+        method: 'POST',
+        data : {
+          _token: $("input[name=_token]").val(),
+          IdMPegawai : 1,
+          Tanggal : '2019-02-01',
+          JamMulai : $('#JamMulai').val(),
+          JamSelesai : $('#JamSelesai').val(),
+          Selisih : SelisihJam,
+          Jenis : $('#tipe2').val()
+        },
+        success: function(result){
+          console.log('History Tersimpan');
+        }
+    });
+}
+
 function clearModal(){
   
 }
@@ -109,8 +150,20 @@ $( document ).ready(function(e){
    });
 
    $('#Jam').change(function(){
+      var time, menit;
+
       if($('#tipe1').val() == "Masuk"){
         if(timeToSeconds($('#Jam').val() + ':00') > timeToSeconds('08:15:00')){
+          time = timeToSeconds($('#Jam').val() + ':00');
+
+          time = time / 100;
+
+          time = Math.floor((time - 29700) / 1800) + 1;
+
+          menit = time * 30;
+          time = menit / 60;
+
+          $('#textPesan').text("Masukan alasan anda terlambat " + time + " jam ( " + menit + " menit )");
           $('#pesan').show();
           $('#inputJatah').show();
         } else {
@@ -160,7 +213,7 @@ $( document ).ready(function(e){
     });
 
     $('#btnLembur').click(function(){
-        $('#tipe').val('Lembur');
+        $('#tipe2').val('Lembur');
         
         $('#input-modal-opsi .modal-title').text('Lembur');
         
@@ -169,18 +222,18 @@ $( document ).ready(function(e){
     });
 
     $('#btnSave').click(function(e){
-        
-        tipe = $('#tipe').val();
-        if (tipe == "insert"){
-            insert(e);
+        if($('#Jatah').val() != "-"){
+
+          $('#JamMulai').val("08:15");
+          $('#JamSelesai').val($('#Jam').val());
+          $('#tipe2').val($('#Jatah').val());
+
+          InsertHistory(e);
         }
+    });
 
-        if (tipe == "update"){
-            update(e);
-        }
-
-        clearModal();
-
+    $('#btnSaveLain').click(function(e){
+        InsertHistory(e);
     });
 
     $('#btnCancel').click(function(){

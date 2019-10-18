@@ -58,15 +58,16 @@
                     </div>
 
                     <div class="alert alert-info" id="pesan">
-                      <strong>Info!</strong> Silahkan pilih alasan datang lebih dari 08:15
+                      <strong>Info!</strong> <div id="textPesan"> </div>
                     </div>
 
                     <div class="form-group" id="inputJatah">
                         <label class="col-sm-6 control-label">Alasan</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="Jatah">
-                                <option value="ijin">Terlambat</option>
-                                <option value="ijin">Ijin</option>
+                                <option value="-"> --- Pilih Satu --- </option>
+                                <option value="Terlambat">Terlambat</option>
+                                <option value="Ijin">Ijin</option>
                                 <option value="sakit">Sakit</option>
                             </select>
                         </div>
@@ -114,8 +115,8 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" id="btnCancel" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-            <button type="button" id="btnSave" class="btn btn-primary">Save</button>
+            <button type="button" id="btnCancelLain" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+            <button type="button" id="btnSaveLain" class="btn btn-primary">Save</button>
         </div>
         </div>
     </div>

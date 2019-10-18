@@ -2,6 +2,7 @@
 
 <head>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -201,12 +202,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js" integrity="sha256-bmXHkMKAxMZgr2EehOetiN/paT9LXp0KKAKnLpYlHwE=" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="../../../app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Page level plugin JavaScript-->
-    <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+    
     <script src="{{ asset('vendor/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
 
